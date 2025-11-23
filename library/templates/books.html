@@ -29,21 +29,26 @@
         border-top-right-radius: 10px;
         margin-bottom: 20px;
     }
-    .input-group{
-      width: 550px;
-      margin: 10px;
+    
+ 
+    .Addbookbottomcontainer,
+    .searchbookbottomcontainer
+    {
+        padding: 10px;
     }
-    .form-floating{
-        width: 370px;
-        margin: 10px;
+   .input-group,
+   .form-select,
+    .form-control {
+        width: 100%;
+        max-width: 550px; /* optional */
+        padding: 5px;
+        
+        
     }
-    .form-select{
-        width: 550px;
-       
-        margin: 10px;
-    }
-    .form-control{
-        width: 550px;
+ 
+
+    .addbookbtn{
+        margin-top: 10px;
     }
     .navbarpostion{
          position: fixed;
@@ -54,6 +59,9 @@
     }
     .btnEl{
         margin-left: auto;
+    }
+    .Categoryselection{
+        margin-top: 10px;
     }
     
     
@@ -93,6 +101,8 @@
                         {% endfor %}
                     </div>
                     {% endif %}
+              
+            <div class="Addbookbottomcontainer">
               <div class="input-group flex-nowrap">
               <span class="input-group-text" id="addon-wrapping">Book title :</span>
               <input type="text" class="form-control" placeholder="Title" name="title" aria-label="Username" aria-describedby="addon-wrapping">
@@ -105,6 +115,7 @@
               <span class="input-group-text" id="addon-wrapping">ISBN :</span>
               <input type="text" class="form-control" placeholder="Book Number" name="isbn" aria-label="Username" aria-describedby="addon-wrapping">
               </div>
+              
               <select class="form-select" name="category" required>
                 <option selected disabled>Select Category</option>
                 <option value="Fiction">Fiction</option>
@@ -114,9 +125,11 @@
                 <option value="Biography">Biography</option>
                 <option value="Technology">Technology</option>
                </select>
+               
 
                
-               <button class="button btn btn-primary">Add Book</button>
+               <button class="addbookbtn btn btn-primary">Add Book</button>
+            </div>
             </form>
               
             </div>
@@ -125,13 +138,13 @@
         <div class="col-md-6">
             <div class="register_container">
               <h1 class="header">Search Books</h1>
-              <nav class="navbar bg-body-tertiary">
-                <div class="container-fluid">
+              <div class="searchbookbottomcontainer">
+                <div class="searchbookinput container-fluid">
                     <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" id="searchBook" placeholder="Search" aria-label="Search"/>
                     </form>
-                </div>
-                </nav>
+                </div>  
+                <div class="Categoryselection">
               <select class="form-select" id="category" name="category" required>
                 <option select disabled>Select Category</option>
                 <option value="Fiction">Fiction</option>
@@ -141,8 +154,8 @@
                 <option value="Biography">Biography</option>
                 <option value="Technology">Technology</option>
                 </select>
-
-              
+              </div>
+              </div>
         </div>
         
         
@@ -183,5 +196,6 @@
 </div>
 {{ books|json_script:"books-data" }}
 <script src="{% static 'books.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -136,11 +136,11 @@ def reports(request):
               "status":"Checkout" if i.title in checkout_title else "Available"
          })
     Total_Books=books.count()
-    Available_books=Books.objects.exclude(title__in=checkout_title).count()
-    checkout_books=Books.objects.filter(title__in=checkout_title).count()
+    Available_books = Books.objects.exclude(title__in=checkout_title).count()
+    checkout_books = Checkouts.objects.filter(status="Active").count()
     checkouts=Checkouts.objects.all().count()
     total_member=Member.objects.all().count()
-    Overdue_books=Checkouts.objects.filter(due_date__lt=date.today()).count()
+    Overdue_books = Checkouts.objects.filter(due_date__lt=date.today()).count()
          
     context={
          "Total_Books":Total_Books,

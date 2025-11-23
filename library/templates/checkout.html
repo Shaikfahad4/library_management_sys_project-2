@@ -33,23 +33,27 @@
         border-top-right-radius: 10px;
         margin-bottom: 20px;
     }
-    .input-group{
-      width: 550px;
-      margin: 10px;
-    }
+    
     .form-floating{
         width: 370px;
         margin: 10px;
     }
-    .form-select{
-        width: 550px;
+    
+    .input-group,
+   .form-select,
+    .form-control {
+        width: 100%;
        
-        margin: 10px;
+        padding: 5px;
+        margin-bottom: 10px;
+        
+        
     }
-    .form-control{
-        width: 550px;
-        margin: 10px;
+    .checkoutinput,
+    .returnbookinput{
+        padding: 10px;
     }
+ 
     .positionnavbar{
         position: fixed;
         width: 100%;
@@ -96,6 +100,7 @@
                         {% endfor %}
                     </div>
                     {% endif %}
+                <div class="checkoutinput">
               <select class="form-select" id="selectName" name="memberName" required>
                 <option selected disabled>Select Name</option>
                 {%for i in member %}
@@ -113,11 +118,13 @@
                 <input type="text" class="form-control" id="datepicker" name="duedate" placeholder="Select a date">
                 <button class="btn btn-primary">Checkout Book</button>
                 </form>
+                </div>
             </div>
         </div>
         <div class="col-md-6 text-center">
             <div class="register_container">
               <h1 class="header">Return Book</h1>
+              <div class="returnbookinput">
               <select class="form-select" name="category" id="returnItem" required>
                 <option selected disabled>Select Category</option>
                 {%for i in checkout_list %}
@@ -125,6 +132,7 @@
                 {% endfor %}
             </select>
             <a href="#" class="btn btn-danger" id="ReturnBtn">Return Book</a>
+            </div>       
         </div>       
     </div>      
 </div>
